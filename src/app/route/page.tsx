@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { cn } from '@/lib/utils'
 import './App.css'
@@ -133,6 +133,7 @@ export default function App() {
   const creatingRoute = async (e : React.FormEvent) => {
     e.preventDefault()
     const data = {
+        name : name,
         start : startLocation,
         stops : stops,
         destination : destination

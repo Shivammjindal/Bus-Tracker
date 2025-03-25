@@ -8,15 +8,16 @@ export default function Tracker(){
 
   const [tocity, setToCity] = useState<string>("")
   const [arrival, setArrival] = useState<boolean>(true)
-  const [travel, setTravel] = useState<number>(171)
+  // const [travel, setTravel] = useState<number>(171)
+  const travel = 29
   const [distrem, setDistRem] = useState<number>(0)
   const [fromTop, setfromTop] = useState<number>(0)
   const [index, setIndex] = useState<number>(0)
-  const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
+  const isRefreshing = false;
 
   let locate = 0
 
-  
+  console.log(index)
  
   const data = [
     {
@@ -77,7 +78,7 @@ export default function Tracker(){
       setIndex(i)
       setDistRem(Math.abs(Math.round(parseInt(data[i].dist)-travel)))
     }
-  },[travel, data])
+  },[travel])
 
   useEffect(() => {
     if(travel <= parseInt(data[data.length-1].dist)){
@@ -114,7 +115,7 @@ export default function Tracker(){
             </div>
             {
               data.map((loc) => {
-                let temp = locate
+                const temp = locate
                 locate += parseInt(loc.dist)*4 - temp
                 return( <div key={loc.place} style={{ top: `${locate}px`}} className="mt-1 absolute w-4 h-4 rounded-full bg-blue-200">
                 <div className="absolute left-8 min-w-64">
