@@ -138,8 +138,8 @@ export default function App() {
         stops : stops,
         destination : destination
     }
-    const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/reg/route`,data)
-    console.log(response)
+    const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/route`,data)
+    console.log("R :: ",response)
   }
 
   const removeStop = (id: number) => {
